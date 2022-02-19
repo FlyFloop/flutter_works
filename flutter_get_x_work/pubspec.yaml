@@ -27,11 +27,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_bottom_navigation_bar: ^0.3.2
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  freezed: ^1.1.1
   get: ^4.6.1
-  animated_bottom_navigation_bar: ^0.3.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

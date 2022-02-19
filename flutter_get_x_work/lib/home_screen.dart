@@ -15,15 +15,19 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _bottomNavigationBarActiveIndex = 0;
+  Widget currentScreen = graph_screen();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: AppBar(title: Text(homeappBarTitle), ),
-      body: graph_screen(),
+      body: currentScreen,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.grey,
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          size: 30,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
@@ -34,17 +38,25 @@ class _HomeState extends State<Home> {
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         activeIndex: _bottomNavigationBarActiveIndex,
         gapLocation: GapLocation.center,
+        iconSize: 30,
         backgroundColor: Colors.grey,
         onTap: (index) {
+          //sayfa seçimine göre bodyi değiştiriyor
           switch (index) {
             case 0:
-              Get.to(graph_screen());
+              // Get.to(graph_screen());
+              setState(() {
+                currentScreen = graph_screen();
+              });
               break;
             case 1:
-              Get.to(history_screen());
+              // Get.to(history_screen());
+              setState(() {
+                currentScreen = history_screen();
+              });
               break;
             default:
-              throw ('bottom navagation bar error');
+              throw (bottomNavagationBarThrow);
           }
         },
       ),

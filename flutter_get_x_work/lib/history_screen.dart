@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_get_x_work/constants.dart';
+import 'package:flutter_get_x_work/widgets/record_list_tile.dart';
 
 class history_screen extends StatefulWidget {
   const history_screen({Key? key}) : super(key: key);
@@ -16,7 +17,12 @@ class _history_screenState extends State<history_screen> {
         title: Text(historyScreenAppBarTitle),
         centerTitle: true,
       ),
-      body: Center(child: Text('History Screen')),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return record_list_tile();
+        },
+      ),
     );
   }
 }
