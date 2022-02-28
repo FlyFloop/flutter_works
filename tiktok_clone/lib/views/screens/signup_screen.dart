@@ -41,10 +41,7 @@ class SignupScreen extends StatelessWidget {
                   left: 80,
                   bottom: -10,
                   child: IconButton(
-                    onPressed: () {
-                      // ignore: avoid_print
-                      print('icon added');
-                    },
+                    onPressed: () => authController.pickImage(),
                     icon: const Icon(
                       Icons.add_a_photo,
                       color: Colors.white,
@@ -105,7 +102,11 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
             // ignore: avoid_print
-            onTap: () => print('signup works'),
+            onTap: () => authController.registerUser(
+                _usernameController.text,
+                _emailController.text,
+                _passwordController.text,
+                authController.profilePhoto),
           ),
           const SizedBox(
             height: 15,

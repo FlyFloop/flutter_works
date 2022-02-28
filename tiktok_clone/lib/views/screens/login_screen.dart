@@ -67,7 +67,8 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             // ignore: avoid_print
-            onTap: () => print('login works'),
+            onTap: () => authController.loginUser(
+                _emailController.text, _passwordController.text),
           ),
           const SizedBox(
             height: 15,
