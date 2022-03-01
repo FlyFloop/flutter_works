@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants.dart';
-
-import '../widgets/custom_icon.dart';
+import 'package:tiktok_clone/views/widgets/custom_icon.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   int _bottomNavIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
             _bottomNavIndex = value;
           });
         },
-        currentIndex: _bottomNavIndex,
         backgroundColor: backgroundColor,
-        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
-        items: const [
+        currentIndex: _bottomNavIndex,
+        type: BottomNavigationBarType.fixed,
+        items: [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
@@ -35,27 +33,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                size: 30,
-              ),
-              label: 'Search'),
-          BottomNavigationBarItem(icon: CustomIcon(), label: ''),
+              icon: Icon(Icons.search, size: 30), label: 'Search'),
+          BottomNavigationBarItem(icon: CustomIcon(), label: 'Add'),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message,
-                size: 30,
-              ),
-              label: 'Message'),
+              icon: Icon(Icons.message, size: 30), label: 'Messages'),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                size: 30,
-              ),
-              label: 'Profile'),
+              icon: Icon(Icons.person, size: 30), label: 'Profile'),
         ],
       ),
-      body: Center(child: pages[_bottomNavIndex]),
+      body: pages[_bottomNavIndex],
     );
   }
 }
