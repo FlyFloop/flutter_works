@@ -7,11 +7,41 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_clone/constants.dart';
 import 'package:tiktok_clone/models/user_model.dart';
+import 'package:tiktok_clone/views/screens/home_screen.dart';
+import 'package:tiktok_clone/views/screens/login_screen.dart';
 
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
   late Rx<File?> _pickedImage;
   File? get profilePhoto => _pickedImage.value;
+  late Rx<User?> _user;
+
+  // eğer kullanıcı telefonda login yapmış ise direk anaekrana atar
+  @override
+  void onReady() {
+    //first time app loads up
+    // ignore: todo
+    // TODO: implement onReady
+    super.onReady();
+    _user = Rx<User?>(firebaseAuth.currentUser); //current user
+    _user.bindStream(firebaseAuth
+        .authStateChanges()); //binding it to a stream which is firebase listens to changes in auth state
+    ever(_user, _setInitialScreen);
+    /*
+    user kullanıcısını şuanki kullanıcıya atıyoruz 
+    ardından user kullanıcısının uygulmadan çıkıp çıkmadığını dinlemek için bindstream ile dinliyoruz
+    ardından bir değişiklik olursa ever() ile sorguluyoruz
+    */
+  }
+
+  _setInitialScreen(User? user) {
+    if (user == null) {
+      Get.offAll(() => LoginScreen());
+    } else {
+      Get.offAll(() => HomeScreen());
+    }
+  }
+
   //pick image
   void pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
