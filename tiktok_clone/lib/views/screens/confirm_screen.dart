@@ -17,8 +17,8 @@ class ConfirmScreen extends StatefulWidget {
 
 class _ConfirmScreenState extends State<ConfirmScreen> {
   late VideoPlayerController controller;
-  TextEditingController _songController = TextEditingController();
-  TextEditingController _captionController = TextEditingController();
+  final TextEditingController _songController = TextEditingController();
+  final TextEditingController _captionController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -33,7 +33,6 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
@@ -91,9 +90,17 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                       controller.pause();
                     },
                     child: const Text(
-                      'Share',
+                      'pause',
                       style: TextStyle(fontSize: 20, color: Colors.white),
-                    ))
+                    )),
+                ElevatedButton(
+                    onPressed: () {
+                      controller.play();
+                    },
+                    child: const Text(
+                      'play',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    )),
               ],
             ),
           )
