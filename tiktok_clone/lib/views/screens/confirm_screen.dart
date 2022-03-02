@@ -22,7 +22,7 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
   final TextEditingController _songController = TextEditingController();
   final TextEditingController _captionController = TextEditingController();
 
-  UploadVideoController _uploadVideoController =
+  final UploadVideoController _uploadVideoController =
       Get.put(UploadVideoController());
   @override
   void initState() {
