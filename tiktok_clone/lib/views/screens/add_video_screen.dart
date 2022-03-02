@@ -81,7 +81,7 @@ class AddVideoScreen extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width - 70,
             height: 50,
-            child: Center(
+            child: const Center(
               child: Text(
                 'Add Video',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

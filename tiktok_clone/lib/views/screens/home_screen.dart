@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: Colors.white,
         currentIndex: _bottomNavIndex,
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
