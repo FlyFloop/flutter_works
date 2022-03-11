@@ -16,6 +16,8 @@ class AuthController extends GetxController {
   File? get profilePhoto => _pickedImage.value;
   late Rx<User?> _user;
 
+  User get user => _user.value!;
+
   // eğer kullanıcı telefonda login yapmış ise direk anaekrana atar
   @override
   void onReady() {
@@ -114,5 +116,9 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar('Login error', e.toString());
     }
+  }
+
+  signOut() async {
+    await firebaseAuth.signOut();
   }
 }
