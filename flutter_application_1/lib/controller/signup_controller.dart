@@ -6,6 +6,8 @@ class SignupController extends GetxController {
   //signup user
   signupUser(
       String userName, String email, String, String password, File? image) {
-    try {} catch (e) {}
+    try {} catch (e) {
+      Get.snackbar('Error while registering app', e.toString());
+    }
   }
 }
