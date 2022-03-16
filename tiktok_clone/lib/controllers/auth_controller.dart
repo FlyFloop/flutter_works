@@ -97,8 +97,8 @@ class AuthController extends GetxController {
       } else {
         Get.snackbar('Error creating account', 'Please fill all the fields');
       }
-    } catch (e) {
-      Get.snackbar('Error creating account', e.toString());
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar('Error while creating account', e.toString());
     }
   }
 

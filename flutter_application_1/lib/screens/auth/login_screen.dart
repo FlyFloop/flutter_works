@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/signup_controller.dart';
+import 'package:flutter_application_1/screens/auth/signup_screen.dart';
+import 'package:flutter_application_1/screens/widgets/reset_password_bottom_sheet.dart';
 import 'package:flutter_application_1/screens/widgets/signup_textfield.dart';
 import 'package:get/get.dart';
 
-import 'login_screen.dart';
+import '../../controller/login_controller.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<LoginScreen> createState() => _LoginScreen();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _LoginScreen extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  final TextEditingController _usernameController = TextEditingController();
-
-  SignupController _signupController = Get.put(SignupController());
+  LoginController _loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,6 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SignupTextField(
-            controller: _usernameController,
-            hintText: 'Enter your username',
-            isObscure: false,
-          ),
           SignupTextField(
             controller: _emailController,
             hintText: 'Enter your email',
@@ -46,10 +41,8 @@ class _SignupScreenState extends State<SignupScreen> {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () => _signupController.signupUser(
-                  _usernameController.text,
-                  _emailController.text,
-                  _passwordController.text),
+              onTap: () => _loginController.loginUser(
+                  _emailController.text, _passwordController.text),
               child: Container(
                 width: size.width * 0.8,
                 height: size.height / 20,
@@ -57,7 +50,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     color: Colors.blueAccent[100],
                     borderRadius: BorderRadius.all(Radius.circular(32.0))),
                 child: Center(
-                  child: Text('Signup',
+                  child: Text('Login',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -71,7 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Already have an account?',
+                Text('Don\'t have an account?',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 17,
@@ -79,9 +72,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(width: 2),
                 InkWell(
                   onTap: () {
-                    Get.to(() => LoginScreen());
+                    Get.to(() => SignupScreen());
                   },
-                  child: Text(' Login',
+                  child: Text(' Signup',
                       style: TextStyle(
                           color: Colors.blueAccent[100],
                           fontSize: 17,
@@ -90,6 +83,19 @@ class _SignupScreenState extends State<SignupScreen> {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: InkWell(
+              onTap: () => Get.bottomSheet(
+                ResetPassword(),
+              ),
+              child: Text('Reset Password',
+                  style: TextStyle(
+                      color: Colors.blueAccent[100],
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold)),
+            ),
+          )
         ],
       ),
     ));
