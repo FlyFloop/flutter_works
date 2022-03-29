@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:tinder_clone/repositories/constants.dart';
 
 class UserRepository {
-  final FirebaseAuth _firebaseAuth;
-  final FirebaseFirestore _firestore;
-
-  UserRepository(this._firebaseAuth, this._firestore);
+  UserRepository();
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {
@@ -44,7 +44,11 @@ class UserRepository {
   }
 
   Future<String> getUser() async {
-    return _firebaseAuth.currentUser!.uid;
+    if (_firebaseAuth.currentUser == null) {
+      return "null";
+    } else {
+      return _firebaseAuth.currentUser!.uid;
+    }
   }
   //profile setup
 }
