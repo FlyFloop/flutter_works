@@ -26,10 +26,10 @@ class LoggedIn extends AuhBlocEvent {
   //this is the second event
   //when the user is logged in
   //we need to show the authenticated state
-  final String userId;
-  LoggedIn(this.userId);
+
+  LoggedIn();
   @override
-  List<Object> get props => [userId];
+  List<Object> get props => [];
 }
 
 class LoggedOut extends AuhBlocEvent {

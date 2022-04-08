@@ -11,7 +11,11 @@ part 'bloclogin_event.dart';
 class BlocloginBloc extends Bloc<BlocloginEvent, LoginState> {
   UserRepository userRepository;
 
-  BlocloginBloc({required this.userRepository}) : super(LoginState.empty());
+  BlocloginBloc({required this.userRepository}) : super(LoginState.empty()) {
+    on<BlocloginEvent>(
+      (event, emit) => event,
+    );
+  }
 
   @override
   LoginState get initialState => LoginState.empty();

@@ -10,7 +10,11 @@ part 'bloc_signup_state.dart';
 class BlocSignupBloc extends Bloc<BlocSignupEvent, SignupState> {
   UserRepository userRepository;
 
-  BlocSignupBloc({required this.userRepository}) : super(SignupState.empty());
+  BlocSignupBloc({required this.userRepository}) : super(SignupState.empty()) {
+    on<BlocSignupEvent>(
+      (event, emit) => event,
+    );
+  }
 
   @override
   SignupState get initialState => SignupState.empty();

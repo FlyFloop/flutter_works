@@ -31,12 +31,19 @@ dependencies:
   cloud_firestore: ^3.1.10
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
+  eva_icons_flutter: ^3.1.0
+  extended_image: ^6.0.2+1
+  file_picker: ^4.5.1
   firebase_auth: ^3.3.11
   firebase_core: ^1.13.1
   firebase_storage: ^10.2.9
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_datetime_picker: ^1.5.1
+  font_awesome_flutter: ^10.1.0
+  geolocator: ^8.2.0
+  image_picker: ^0.8.4+11
   meta: ^1.7.0
   rxdart: ^0.27.3
 

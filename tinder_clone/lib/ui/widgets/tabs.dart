@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tinder_clone/ui/constants.dart';
 import 'package:tinder_clone/ui/matches.dart';
@@ -26,7 +27,11 @@ class Tabs extends StatelessWidget {
             centerTitle: true,
             title: Text('Tinder Clone'),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app))
+              IconButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                  icon: Icon(Icons.exit_to_app))
             ],
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(48.0),

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/controller/controller_consts.dart';
-import 'package:flutter_application_1/screens/screens/home_screen.dart';
+import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/screens/screens/profile_screen.dart';
+
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -11,7 +13,7 @@ class LoginController extends GetxController {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((value) {
           Get.snackbar('Successfully login', 'You have successfully login');
-          //   Get.to(() => ExamplePage());
+          Get.to(() => MainPage());
         });
       } else {
         Get.snackbar('Error fields!', 'Please fill all the fields');

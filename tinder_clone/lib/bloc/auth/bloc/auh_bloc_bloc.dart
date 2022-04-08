@@ -12,25 +12,24 @@ class AuhBlocBloc extends Bloc<AuhBlocEvent, AuhBlocState> {
   @override
   AuhBlocState get initialState => AuhBlocUnInitial();
 
-  AuhBlocBloc({required this.userRepository})
-      : super(AuhBlocUnAuthenticated()) {
+  AuhBlocBloc({required this.userRepository}) : super(AuhBlocUnInitial()) {
     on<AuhBlocEvent>(
-      (event, emit) => event,
-    );
+        // ignore: void_checks
+        (event, emit) async* {
+      if (event is AppStarted) {
+        yield* _mapAppStartedToState();
+      } else if (event is LoggedIn) {
+        yield* _mapLoggedInToState();
+      } else if (event is LoggedOut) {
+        yield* _mapLoggedOutToState();
+      }
+    });
   }
 
   Stream<AuhBlocState> _mapEventToState(
     //this is the event handler
     AuhBlocEvent event,
-  ) async* {
-    if (event is AppStarted) {
-      yield* _mapAppStartedToState();
-    } else if (event is LoggedIn) {
-      yield* _mapLoggedInToState();
-    } else if (event is LoggedOut) {
-      yield* _mapLoggedOutToState();
-    }
-  }
+  ) async* {}
 
   Stream<AuhBlocState> _mapAppStartedToState() async* {
     try {
