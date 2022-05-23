@@ -16,7 +16,8 @@ class ScaffoldLearn extends StatelessWidget {
         backgroundColor: Colors.grey,
         onPressed: () {},
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation
+          .centerDocked, //floatactionbutton konumunu ayarlar
       drawer: const Drawer(), //sağdan ekran açıyor
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
