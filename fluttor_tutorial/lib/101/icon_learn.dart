@@ -8,7 +8,7 @@ class IconLearn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Icon Learn'),
+        title: const Text('Icon Learn'),
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -23,6 +23,7 @@ class IconLearn extends StatelessWidget {
   }
 }
 
+//her şeyi widget içine yazmaktan ise widgetlara özel class oluşturup kod topluluğu sağlanmalı
 class IconSizes {
   double iconSmall = 40;
 }

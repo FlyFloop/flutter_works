@@ -4,7 +4,6 @@ class ContainerSizedBoxLearn extends StatelessWidget {
   const ContainerSizedBoxLearn({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -38,6 +37,7 @@ class ContainerSizedBoxLearn extends StatelessWidget {
   }
 }
 
+//her şeyi widget içine yazmaktan ise widgetlara özel class oluşturup kod topluluğu sağlanmalı
 class ProjectUtility {
   static BoxDecoration boxDecoration = BoxDecoration(
       border: Border.all(width: 10, color: Colors.white),

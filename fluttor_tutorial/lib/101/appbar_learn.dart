@@ -10,7 +10,7 @@ class AppbarLearn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),
-        leading: Icon(Icons.chevron_left),
+        leading: const Icon(Icons.chevron_left),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0, //transparentten sonra üstteki boşluğu gidermek için,

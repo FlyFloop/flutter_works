@@ -9,10 +9,10 @@ class ScaffoldLearn extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Scaffold Samples'),
       ),
-      body: Center(child: const Text('merhaba')),
+      body: const Center(child: Text('merhaba')),
       backgroundColor: Colors.black,
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         backgroundColor: Colors.grey,
         onPressed: () {},
       ),

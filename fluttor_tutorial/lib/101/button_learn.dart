@@ -26,11 +26,13 @@ class ButtonLearn extends StatelessWidget {
                   'Save',
                   style: Theme.of(context).textTheme.subtitle2,
                 )), //yazı buton text button
+            // ignore: prefer_const_constructors
             ElevatedButton(
                 onPressed:
                     null, //eğer onpresseda null atanırsa buton disabled olur
                 child: Text('data')), //normal buton
-            IconButton(onPressed: () {}, icon: Icon(Icons.save)), //icon buton
+            IconButton(
+                onPressed: () {}, icon: const Icon(Icons.save)), //icon buton
             FloatingActionButton(
               onPressed: () {
                 //servise istek at
