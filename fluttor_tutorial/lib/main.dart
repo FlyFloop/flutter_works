@@ -10,6 +10,7 @@ import 'package:fluttor_tutorial/101/padding_learn.dart';
 import 'package:fluttor_tutorial/101/scaffold_learn.dart';
 import 'package:fluttor_tutorial/101/stateless_learn.dart';
 import 'package:fluttor_tutorial/101/text_learn_view.dart';
+import 'package:fluttor_tutorial/demos/notes_demo_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0)),
       title: 'Flutter Demo',
-      home: ImageLearn(),
+      home: NotesDemoView(),
     );
   }
 }

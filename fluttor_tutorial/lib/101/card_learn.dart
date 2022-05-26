@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CardLearn extends StatelessWidget {
   const CardLearn({Key? key}) : super(key: key);
+  final String cardText = 'Alper';
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class CardLearn extends StatelessWidget {
           child: Column(
         children: [
           cardWidget(
-            child: Text('Alper'),
+            child: Text(cardText),
           )
         ],
       )),

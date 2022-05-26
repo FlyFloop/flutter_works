@@ -17,8 +17,7 @@ class ImageLearn extends StatelessWidget {
                 path: ProjectsImage.f40,
               ),
             ),
-            Image.network(
-                'https://www.automagg.com/wp-content/uploads/2017/02/Ferrari812Superfast_4.jpg')
+            Image.network(ProjectsImage.imageNetwork)
           ],
         ),
       ),
@@ -42,4 +41,6 @@ class PngImage extends StatelessWidget {
 
 class ProjectsImage {
   static const String f40 = 'assets/f40.png';
+  static const String imageNetwork =
+      'https://www.automagg.com/wp-content/uploads/2017/02/Ferrari812Superfast_4.jpg';
 }
